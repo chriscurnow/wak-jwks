@@ -1,6 +1,6 @@
 {
   "name": "wak-jwks",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Wakanda node module for authenticating with Auth0",
   "main": "index.js",
   "scripts": {
