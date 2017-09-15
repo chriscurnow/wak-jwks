@@ -30,20 +30,23 @@ function verify(token, options, cb){
 
     client.getSigningKey(options.kid, (err, key) => {
 
-		 	      const signingKey = key.publicKey || key.rsaPublicKey;
+      if(key){
+          const signingKey = key.publicKey || key.rsaPublicKey;
 
-            // now use the key to verify and decode the token
+        // now use the key to verify and decode the token
 
-            jwt.verify(token, signingKey, function(err, decoded){
-             if(err){
-                return cb(err);
-             }
-             else {
-               return cb(null, decoded);
-             }
-
-
-           });
+        jwt.verify(token, signingKey, function(err, decoded){
+         if(err){
+            return cb(err);
+         }
+         else {
+           return cb(null, decoded);
+         }
+        });
+      }
+     else{
+       return cb(err);
+     }
 
 });
 }
