@@ -4,6 +4,7 @@ module.exports = verify;
 
 const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
+const ms = require('ms');
 
 // @token jwt token
 // @options options to pass to the jwksClient
